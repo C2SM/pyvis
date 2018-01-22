@@ -1,0 +1,32 @@
+# list of packages/ libraries used for the PyVis workshop
+# use 'conda env create -f environment.yml'
+# to create the environment
+
+name: pyvis
+
+channels:
+    - conda-forge
+
+dependencies:
+    - ipython
+    - matplotlib
+    - numpy
+    - netCDF4
+    - pandas
+    - seaborn
+    - cartopy
+    - basemap
+    - basemap-data-hires
+    - iris
+    - xarray
+    - bottleneck
+    - pip
+    - scipy
+    - mpl_sample_data 
+    - geopandas
+    - ggplot
+    - altair
+    - statsmodels  
+    - parse
+    - pip:
+        - viscm
