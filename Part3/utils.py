@@ -1,5 +1,5 @@
 import numpy as np
-
+import cartopy.util as cutil
 
 # from xarray
 def infer_interval_breaks(x, y, clip=False):
@@ -164,7 +164,7 @@ def resize_colorbar_vert(cbax, ax1, ax2=None, size=0.04, pad=0.05, shift='symmet
         ax1, ax2 = (ax1, ax2) if posn.y0 < posn2.y0 else (ax2, ax1)
     
     # inner function is called by event handler
-    def inner(event): 
+    def inner(event=None): 
         
         
         posn = ax1.get_position()
@@ -309,7 +309,7 @@ def resize_colorbar_horz(cbax, ax1, ax2=None, size=0.05, pad=0.05, shift='symmet
         ax1, ax2 = (ax1, ax2) if posn.x0 < posn2.x0 else (ax2, ax1)
     
     
-    def inner(event): 
+    def inner(event=None): 
         
         posn = ax1.get_position()
         
@@ -363,4 +363,59 @@ assert _parse_shift_shrink('symmetric', None) == (0., 0.)
 assert _parse_shift_shrink('symmetric', 1) == (0.5, 1)
 assert _parse_shift_shrink(1, None) == (1, 1)
 assert _parse_shift_shrink(1, 1) == (1, 1)
+
+# ==================================================================================================
+
+
+def cyclic_dataarray(da, coord='lon'):
+    """ Add a cyclic coordinate point to a DataArray along a specified
+    named coordinate dimension.
+    >>> import xarray as xr
+    >>> data = xr.DataArray([[1, 2, 3], [4, 5, 6]],
+    ...                      coords={'x': [1, 2], 'y': range(3)},
+    ...                      dims=['x', 'y'])
+    >>> cd = cyclic_dataarray(data, 'y')
+    >>> print cd.data
+    array([[1, 2, 3, 1],
+           [4, 5, 6, 4]])
+           
+    Note
+    -----
+    After: https://github.com/darothen/plot-all-in-ncfile/blob/master/plot_util.py
+    
+    """
+    import xarray as xr
+    
+    assert isinstance(da, xr.DataArray)
+
+    lon_idx = da.dims.index(coord)
+    cyclic_data, cyclic_coord = cutil.add_cyclic_point(da.values,
+                                                 coord=da.coords[coord],
+                                                 axis=lon_idx)
+
+    # Copy and add the cyclic coordinate and data
+    new_coords = dict(da.coords)
+    new_coords[coord] = cyclic_coord
+    new_values = cyclic_data
+
+    new_da = xr.DataArray(new_values, dims=da.dims, coords=new_coords)
+
+    # Copy the attributes for the re-constructed data and coords
+    for att, val in da.attrs.items():
+        new_da.attrs[att] = val
+    for c in da.coords:
+        for att in da.coords[c].attrs:
+            new_da.coords[c].attrs[att] = da.coords[c].attrs[att]
+
+    return new_da
+
+
+
+
+
+
+
+
+
+
 
