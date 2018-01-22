@@ -1,0 +1,53 @@
+#! /bin/bash
+
+echo ""
+echo "==============================="
+echo "Removing all output from notebooks - please save them first!"
+echo "==============================="
+echo ""
+
+read -r -p "Are you sure? [y/N] " response
+echo ""
+
+if [[ "$response" =~ ^([yY][eE][sS]|[yY])+$ ]]
+then
+	
+
+	# only load the env if necessary
+
+	if hash conda 2>/dev/null; then
+	    #conda installed
+
+	    # this is for the computerroom HG D12
+	    # I think it has no side effects on other systems
+	    export CONDA_ENVS_PATH=/opt/kunden/hauser/conda/envs
+	else
+	    #conda not installed
+	    # for IAC systems
+		module load conda
+
+	fi
+
+	source activate pyvis
+	
+
+	backup=./../.backup_pyvis/$(date '+%Y%m%d_%H%M%S')
+
+	echo "Backup notebooks to $backup, prior nbconvert"
+	echo "==============================="
+	echo ""
+
+	mkdir -p $backup
+	rsync -a --exclude .backup ./ $backup
+
+	echo "nbconvert: clearing code output"
+	echo "==============================="
+	echo ""
+	jupyter nbconvert ./*/*.ipynb --to notebook --inplace --ClearOutputPreprocessor.enabled=True 
+
+
+else
+
+	echo "Aborted"
+
+fi
