@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 import cartopy.util as cutil
 
 # from xarray
