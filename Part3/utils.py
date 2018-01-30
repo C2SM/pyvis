@@ -409,7 +409,93 @@ def cyclic_dataarray(da, coord='lon'):
 
     return new_da
 
+# ----------------------------------------------------------------------
 
+
+def ylabel_map(s, x=-0.07, y=0.55, ax=None, **kwargs):
+    """
+    add ylabel to cartopy plot
+
+    Parameters
+    ----------
+    s : string
+        text to display
+    x : float
+        x position
+    y : float
+        y position
+    ax : matplotlib axis
+        axis to add the label
+    **kwargs : keyword arguments
+        see matplotlib text help
+
+    Returns
+    -------
+    h : handle
+        text handle of the created text field
+
+    ..note::
+    http://stackoverflow.com/questions/35479508/cartopy-set-xlabel-set-ylabel-not-ticklabels
+
+    """
+    if ax is None:
+        ax = plt.gca()
+    
+    va = kwargs.pop('va', 'bottom')
+    ha = kwargs.pop('ha', 'center')
+    rotation = kwargs.pop('rotation', 'vertical')
+    rotation_mode = kwargs.pop('rotation_mode', 'anchor')
+    
+    transform = kwargs.pop('transform', ax.transAxes)
+
+    return ax.text(x, y, s, va=va, ha=ha, rotation=rotation, 
+                   rotation_mode=rotation_mode,
+                   transform=transform, **kwargs)
+
+# ----------------------------------------------------------------------
+
+
+def xlabel_map(s, x=-0.07, y=0.55, ax=None, **kwargs):
+    """
+    add xlabel to cartopy plot
+
+    Parameters
+    ----------
+    s : string
+        text to display
+    x : float
+        x position
+    y : float
+        y position
+    ax : matplotlib axis
+        axis to add the label
+    **kwargs : keyword arguments
+        see matplotlib text help
+
+    Returns
+    -------
+    h : handle
+        text handle of the created text field
+
+    ..note::
+    http://stackoverflow.com/questions/35479508/cartopy-set-xlabel-set-ylabel-not-ticklabels
+
+    """
+    if ax is None:
+        ax = plt.gca()
+    
+    va = kwargs.pop('va', 'bottom')
+    ha = kwargs.pop('ha', 'center')
+    rotation = kwargs.pop('rotation', 'horizontal')
+    rotation_mode = kwargs.pop('rotation_mode', 'anchor')
+    
+    transform = kwargs.pop('transform', ax.transAxes)
+
+    return ax.text(x, y, s, va=va, ha=ha, rotation=rotation, 
+                   rotation_mode=rotation_mode,
+                   transform=transform, **kwargs)
+
+# ----------------------------------------------------------------------
 
 
 
