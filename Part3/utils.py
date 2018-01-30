@@ -1,7 +1,12 @@
-import numpy as np
+import cartopy.util as cutil
+import cartopy.crs as ccrs
 import matplotlib as mpl
 import matplotlib.pyplot as plt
-import cartopy.util as cutil
+import numpy as np
+import shapely.geometry as sgeom
+
+from cartopy.mpl.gridliner import LONGITUDE_FORMATTER, LATITUDE_FORMATTER
+
 
 # from xarray
 def infer_interval_breaks(x, y, clip=False):
@@ -527,7 +532,167 @@ def xlabel_map(s, labelpad=None, size=None, weight=None, x=0.5, ax=None, **kwarg
 # ----------------------------------------------------------------------
 
 
+def yticklabels(y_ticks, labelpad=None, size=None, weight=None, ax=None,
+                ha='right', va='center', bbox_props=dict(ec='none', fc='none'), **kwargs):
+    
+    """
+    draw yticklabels on map plots - may or may not work
+    
+    Parameters
+    ----------
+    y_ticks : 1D array
+        Position of the y_ticks.
+    labelpad : float, optional
+        Distance of labels to axes. Defaults to mpl.rcParams['axes.labelpad']
+        which is usually 4.
+    size : float or fontsize, optional
+        Fontsize, defaults to mpl.rcParams['axes.labelsize'], usually
+        'medium'.
+    weight : string, optional
+        Fontweight, defaults to mpl.rcParams['axes.labelweight'], usually
+        'normal'.
+    ax : GeoAxes, optional
+        Axes to add the labels to. Default plt.gca(.
+    ha : string
+        Horizontal alignment, default: 'right'.
+    va : string
+        Vertical alignment, default: 'center'.
+    bbox_props : dict
+        Properties of the bounding box. Default: dict(ec='none', fc='none')
+    kwargs : additional arguments
+        Passed to ax.annotate
+    
+    """
+    
 
+    plt.draw()
+    
+    # get ax if necessary
+    if ax is None:
+        ax = plt.gca()
+
+    labelpad, size, weight = _get_label_attr(labelpad, size, weight)
+    
+    boundary_pc = _get_boundary_platecarree(ax)
+
+    # ensure labels are on rhs and not in the middle
+    if len(boundary_pc) == 1:
+        lonmin, lonmax = -180, 180
+    else:
+        lonmin, lonmax = 0, 360
+    
+    # get the y_limit
+    y_lim = boundary_pc.bounds[1::2] 
+    
+    # remove all points not on map for labeling
+    y_label_points = [y for y in y_ticks if y_lim[0] <= y <= y_lim[1]]
+
+    # get a transform instance that mpl understands
+    transform = ccrs.PlateCarree()._as_mpl_transform(ax)
+
+    if np.isscalar(labelpad):
+        labelpad = [labelpad, 0]
+    
+    # loop through points    
+    for y in y_label_points:
+
+        msg = LATITUDE_FORMATTER(y)
+        
+        x = _determine_intersection(boundary_pc, [lonmin, y], [lonmax, y])
+    
+        if x.size > 0:
+            x = x[0, 0]                
+            lp = labelpad[0] + labelpad[1] * np.abs(y) / 90
+            
+            h = ax.annotate(msg, xy=(x, y), xycoords=transform, ha=ha, va=va, size=size,
+                            weight=weight, xytext=(-lp, 0), textcoords='offset points',
+                            bbox=bbox_props, **kwargs)
+    
+
+
+def xticklabels(x_ticks, labelpad=None, size=None, weight=None, ax=None,
+                ha='center', va='top', bbox_props=dict(ec='none', fc='none'), **kwargs):
+    
+    """
+    draw xticklabels on map plots - may or may not work
+    
+    Parameters
+    ----------
+    x_ticks : 1D array
+        Position of the x ticks.
+    labelpad : float, optional
+        Distance of labels to axes. Defaults to mpl.rcParams['axes.labelpad']
+        which is usually 4.
+    size : float or fontsize, optional
+        Fontsize, defaults to mpl.rcParams['axes.labelsize'], usually
+        'medium'.
+    weight : string, optional
+        Fontweight, defaults to mpl.rcParams['axes.labelweight'], usually
+        'normal'.
+    ax : GeoAxes, optional
+        Axes to add the labels to. Default plt.gca(.
+    ha : string
+        Horizontal alignment, default: 'center'.
+    va : string
+        Vertical alignment, default: 'top'.
+    bbox_props : dict
+        Properties of the bounding box. Default: dict(ec='none', fc='none')
+    kwargs : additional arguments
+        Passed to ax.annotate
+    
+    """
+    
+    plt.draw()
+    
+    # get ax if necessary
+    if ax is None:
+        ax = plt.gca()
+
+    labelpad, size, weight = _get_label_attr(labelpad, size, weight)
+    
+    boundary_pc = _get_boundary_platecarree(ax)
+   
+    # get the x_limit
+    x_lim = boundary_pc.bounds[::2]     
+    
+    # remove all points not on map for labeling
+    x_label_points = [x for x in x_ticks if x_lim[0] <= x <= x_lim[1]]
+
+    # get a transform instance that mpl understands
+    transform = ccrs.PlateCarree()._as_mpl_transform(ax)
+
+    # loop through points
+    for x in x_label_points:
+
+        msg = LONGITUDE_FORMATTER(x)
+        
+        y = _determine_intersection(boundary_pc, [x, -90], [x, 90])
+        if y.size > 0:
+            y = y[0, 1]                
+            
+            h = ax.annotate(msg, xy=(x, y), xycoords=transform, ha=ha, va=va, size=size,
+                            weight=weight, xytext=(0, -labelpad), textcoords='offset points',
+                            bbox=bbox_props, **kwargs)
+    
+        
+
+def _get_boundary_platecarree(ax):
+    # get the bounding box of the map in lat/ lon coordinates
+    # after ax._get_extent_geom
+    proj = ccrs.PlateCarree()
+    boundary_poly = sgeom.Polygon(ax.outline_patch.get_path().vertices)
+    eroded_boundary = boundary_poly.buffer(-ax.projection.threshold)
+    boundary_pc = proj.project_geometry(eroded_boundary, ax.projection)
+    
+    return boundary_pc
+
+def _determine_intersection(polygon, xy1, xy2):
+
+    p1 = sgeom.Point(xy1)
+    p2 = sgeom.Point(xy2)
+    ls = sgeom.LineString([p1, p2])
+
+    return np.asarray(polygon.boundary.intersection(ls))
 
 
 
