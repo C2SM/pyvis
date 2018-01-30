@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib as mpl
 import matplotlib.pyplot as plt
 import cartopy.util as cutil
 
@@ -413,7 +414,20 @@ def cyclic_dataarray(da, coord='lon'):
 # ----------------------------------------------------------------------
 
 
-def ylabel_map(s, x=-0.07, y=0.55, ax=None, **kwargs):
+def _get_label_attr(labelpad, size, weight):
+
+    if labelpad is None:
+        labelpad = mpl.rcParams['axes.labelpad']
+
+    if size is None:
+        size = mpl.rcParams['axes.labelsize']
+
+    if weight is None:
+        weight = mpl.rcParams['axes.labelweight']
+    
+    return labelpad, size, weight
+
+def ylabel_map(s, labelpad=None, size=None, weight=None, y=0.5, ax=None, **kwargs):
     """
     add ylabel to cartopy plot
 
@@ -442,6 +456,8 @@ def ylabel_map(s, x=-0.07, y=0.55, ax=None, **kwargs):
     if ax is None:
         ax = plt.gca()
     
+    labelpad, size, weight = _get_label_attr(labelpad, size, weight)
+    
     va = kwargs.pop('va', 'bottom')
     ha = kwargs.pop('ha', 'center')
     rotation = kwargs.pop('rotation', 'vertical')
@@ -449,14 +465,19 @@ def ylabel_map(s, x=-0.07, y=0.55, ax=None, **kwargs):
     
     transform = kwargs.pop('transform', ax.transAxes)
 
-    return ax.text(x, y, s, va=va, ha=ha, rotation=rotation, 
-                   rotation_mode=rotation_mode,
-                   transform=transform, **kwargs)
+    h = ax.annotate(s, xy=(0, y), xycoords=transform,
+                xytext=(-labelpad, 0), textcoords='offset points',
+                va=va, ha=ha, rotation=rotation,
+                rotation_mode=rotation_mode,
+                size=size, weight=weight,
+                **kwargs)
+    
+    return h
 
 # ----------------------------------------------------------------------
 
 
-def xlabel_map(s, x=-0.07, y=0.55, ax=None, **kwargs):
+def xlabel_map(s, labelpad=None, size=None, weight=None, x=0.5, ax=None, **kwargs):
     """
     add xlabel to cartopy plot
 
@@ -485,16 +506,23 @@ def xlabel_map(s, x=-0.07, y=0.55, ax=None, **kwargs):
     if ax is None:
         ax = plt.gca()
     
-    va = kwargs.pop('va', 'bottom')
+    labelpad, size, weight = _get_label_attr(labelpad, size, weight)
+    
+    va = kwargs.pop('va', 'top')
     ha = kwargs.pop('ha', 'center')
     rotation = kwargs.pop('rotation', 'horizontal')
     rotation_mode = kwargs.pop('rotation_mode', 'anchor')
     
     transform = kwargs.pop('transform', ax.transAxes)
 
-    return ax.text(x, y, s, va=va, ha=ha, rotation=rotation, 
-                   rotation_mode=rotation_mode,
-                   transform=transform, **kwargs)
+    h = ax.annotate(s, xy=(x, 0), xycoords=transform,
+                xytext=(0, -labelpad), textcoords='offset points',
+                va=va, ha=ha, rotation=rotation,
+                rotation_mode=rotation_mode,
+                size=size, weight=weight,
+                **kwargs)
+    
+    return h
 
 # ----------------------------------------------------------------------
 
