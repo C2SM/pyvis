@@ -7,6 +7,29 @@ import shapely.geometry as sgeom
 
 from cartopy.mpl.gridliner import LONGITUDE_FORMATTER, LATITUDE_FORMATTER
 
+# ==================================================================================================
+
+def sample_data_3d(nlons, nlats):
+    """Returns `lons`, `lats`, and fake `data`
+
+    adapted from:
+    http://scitools.org.uk/cartopy/docs/v0.15/examples/axes_grid_basic.html
+    """
+    
+    dlat = 180. / nlats / 2
+    dlon = 360. / nlons
+
+    lat = np.linspace(-90 + dlat, 90 - dlat, nlats)   
+    lon = np.linspace(0, 360 - dlon, nlons)
+
+    lons, lats = np.meshgrid(np.deg2rad(lon), np.deg2rad(lat))
+    wave = 0.75 * (np.sin(2 * lats) ** 8) * np.cos(4 * lons)
+    mean = 0.5 * np.cos(2 * lats) * ((np.sin(2 * lats)) ** 2 + 2)
+    data = wave + mean
+    
+    return lon, lat, data
+
+# ==================================================================================================
 
 # from xarray
 def infer_interval_breaks(x, y, clip=False):
@@ -418,6 +441,61 @@ def cyclic_dataarray(da, coord='lon'):
 
 # ----------------------------------------------------------------------
 
+def set_map_layout(axes, width=17.0):
+    """
+    set figure height, given width
+
+    Needs to be called after all plotting is done.
+       
+    Parameters
+    ----------
+    axes : ndarray of (Geo)Axes
+        Array with all axes of the figure.
+    width : float
+        Width of the full figure in cm. Default 17
+
+    ..note: currently only works if all the axes have the same aspect
+    ratio.
+    """
+
+    if isinstance(axes, plt.Axes):
+        ax = axes
+    else:
+        # assumes the first of the axes is representative for all
+        ax = axes.flat[0]
+    
+    # read figure data
+    f = ax.get_figure()
+
+    bottom = f.subplotpars.bottom
+    top = f.subplotpars.top
+    left = f.subplotpars.left
+    right = f.subplotpars.right
+    hspace = f.subplotpars.hspace
+    wspace = f.subplotpars.wspace
+
+    # data ratio is the aspect
+    aspect = ax.get_data_ratio()
+    # get geometry tells how many subplots there are
+    nrow, ncol, __ = ax.get_geometry()
+
+
+    # width of one plot, taking into account
+    # left * wf, (1-right) * wf, ncol * wp, (1-ncol) * wp * wspace
+    wp = (width - width * (left + (1-right))) / (ncol + (ncol-1) * wspace) 
+
+    # height of one plot
+    hp = wp * aspect
+
+    # height of figure
+    height = (hp * (nrow + ((nrow - 1) * hspace))) / (1. - (bottom + (1 - top)))
+
+
+    f.set_figwidth(width / 2.54)
+    f.set_figheight(height / 2.54)
+
+# ----------------------------------------------------------------------
+
 
 def _get_label_attr(labelpad, size, weight):
 
@@ -432,6 +510,9 @@ def _get_label_attr(labelpad, size, weight):
     
     return labelpad, size, weight
 
+# --------------
+
+
 def ylabel_map(s, labelpad=None, size=None, weight=None, y=0.5, ax=None, **kwargs):
     """
     add ylabel to cartopy plot
@@ -440,10 +521,17 @@ def ylabel_map(s, labelpad=None, size=None, weight=None, y=0.5, ax=None, **kwarg
     ----------
     s : string
         text to display
-    x : float
-        x position
+    labelpad : float, optional
+        Distance of labels to axes. Defaults to mpl.rcParams['axes.labelpad']
+        which is usually 4.
+    size : float or fontsize, optional
+        Fontsize, defaults to mpl.rcParams['axes.labelsize'], usually
+        'medium'.
+    weight : string, optional
+        Fontweight, defaults to mpl.rcParams['axes.labelweight'], usually
+        'normal'.
     y : float
-        y position
+        y position in axes coordinates. Default 0.5
     ax : matplotlib axis
         axis to add the label
     **kwargs : keyword arguments
@@ -490,10 +578,17 @@ def xlabel_map(s, labelpad=None, size=None, weight=None, x=0.5, ax=None, **kwarg
     ----------
     s : string
         text to display
-    x : float
-        x position
-    y : float
-        y position
+    labelpad : float, optional
+        Distance of labels to axes. Defaults to mpl.rcParams['axes.labelpad']
+        which is usually 4.
+    size : float or fontsize, optional
+        Fontsize, defaults to mpl.rcParams['axes.labelsize'], usually
+        'medium'.
+    weight : string, optional
+        Fontweight, defaults to mpl.rcParams['axes.labelweight'], usually
+        'normal'.
+    x : float, optional
+        x position in axes coordinates. Default 0.5
     ax : matplotlib axis
         axis to add the label
     **kwargs : keyword arguments
