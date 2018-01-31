@@ -8,6 +8,7 @@ import shapely.geometry as sgeom
 import seaborn as sns
 
 from cartopy.mpl.gridliner import LONGITUDE_FORMATTER, LATITUDE_FORMATTER
+from matplotlib.colors import from_levels_and_colors
 
 # ==================================================================================================
 
@@ -61,6 +62,7 @@ def from_levels_and_cmap(levels, cmap, extend='neither'):
     else:
         ext_n = 0
 
+    # subtract 1 because there is one less level than numbers
     pal = sns.color_palette(cmap, n_colors=len(levels) + ext_n - 1)
     cmap, norm = from_levels_and_colors(levels, pal, extend=extend)
     
