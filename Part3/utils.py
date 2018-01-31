@@ -5,6 +5,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import shapely.geometry as sgeom
 
+import seaborn as sns
+
 from cartopy.mpl.gridliner import LONGITUDE_FORMATTER, LATITUDE_FORMATTER
 
 # ==================================================================================================
@@ -28,6 +30,42 @@ def sample_data_3d(nlons, nlats):
     data = wave + mean
     
     return lon, lat, data
+
+# ==================================================================================================
+
+
+def from_levels_and_cmap(levels, cmap, extend='neither'):
+    """
+    
+    Parameters
+    ----------
+    levels : sequence of numbers
+        The quantization levels used to construct the :class:`BoundaryNorm`.
+        Values ``v`` are quantizized to level ``i`` if
+        ``lev[i] <= v < lev[i+1]``.
+    cmap : string
+        Valid colormap identifier.
+    extend : {'neither', 'min', 'max', 'both'}, optional
+        The behaviour when a value falls out of range of the given levels.
+        See :func:`~matplotlib.pyplot.contourf` for details.
+
+    ..note::
+      Adapted from xarray.
+
+    """
+    
+    if extend == 'both':
+        ext_n = 2
+    elif extend in ['min', 'max']:
+        ext_n = 1
+    else:
+        ext_n = 0
+
+    pal = sns.color_palette(cmap, n_colors=len(levels) + ext_n - 1)
+    cmap, norm = from_levels_and_colors(levels, pal, extend=extend)
+    
+    return cmap, norm
+
 
 # ==================================================================================================
 
