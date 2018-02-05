@@ -1,21 +1,15 @@
-![c2sm logo](/slides/intro/pics_template/c2sm_3.png)
+![c2sm logo](./figures/c2sm.png)
 
 # pyvis - Python Visualisation Course - c2sm
 
 
-* Mathias Hauser ([ETHZ](http://www.iac.ethz.ch/people-iac/person-detail.html?persid=146568), [github](https://github.com/mathause) <mathias.hauser@env.ethz.ch>
-* Tarun Chadha  ([ETHZ](https://www.ethz.ch/services/en/organisation/departments/it-services/people/person-detail.html?persid=166149), [github](https://github.com/chadhat))
-
-
-
-[**How to use it - Instructors**](#instructors)<br>
-[**How to use it - Learners**](#learners)<br>
-[Format](#format) | [Audience](#audience) | [Duration](#duration) | [Bonus Material](#bonus-material) | [Feedback](#feedback) | [License](#license)
+* Mathias Hauser ([ETHZ](http://www.iac.ethz.ch/people-iac/person-detail.html?persid=146568), [github](https://github.com/mathause)) <mathias.hauser@env.ethz.ch>
+* Tarun Chadha  ([ETHZ](https://www.ethz.ch/services/en/organisation/departments/it-services/people/person-detail.html?persid=166149), [github](https://github.com/chadhat)) <tarun.chadha@id.ethz.ch>
 
 
 ## Format
 
-The lectures mostly consist of IPython Notebooks.
+The lectures consist of IPython Notebooks.
 
 ## Audience
 
@@ -32,19 +26,14 @@ It's envisioned as a two day course.
 
 ### Obtain the course material
 
-**Either**
+Clone the git repository:
 
 ~~~~bash
 git clone https://github.com/C2SM/pyvis.git
 ~~~~
 
-in case you are familiar with the command line and have
-[git](http://git-scm.com/downloads) installed.
-
-**Otherwise** download the
-[zip-archive](https://github.com/C2SM/pyvis/archive/master.zip)
-and unpack. This will yield a directory `pyvis`, that
-contains everything.
+Alternatively, you can download the [zip-archive](https://github.com/C2SM/pyvis/archive/master.zip)
+and unpack.
 
 
 ### Start jupyter notebook
@@ -67,10 +56,10 @@ jupyter notebook
  * execute the following commands:
 
 ~~~~bash
-    module load conda
-    source activate pyvis
-    # go to the directory of the material
-    jupyter notebook
+module load conda
+source activate pyvis
+# go to the directory of the material
+jupyter notebook
 ~~~~
 
 See also the [IAC wiki on conda](https://wiki.iac.ethz.ch/bin/viewauth/IT/CondaPython) (restricted access).
@@ -78,7 +67,7 @@ See also the [IAC wiki on conda](https://wiki.iac.ethz.ch/bin/viewauth/IT/CondaP
 #### On your personal computer
 
  * [Download](https://conda.io/docs/user-guide/install/download.html) and [install conda](https://conda.io/docs/user-guide/install/linux.html)
- * Create the `pyvis` environment (this will take a while)
+ * Create the `pyvis` environment, using the [`packages.yml`](https://github.com/C2SM/pyvis/blob/master/packages.yml) file (this will take a while)
 
 ~~~~bash
 conda env create -f packages.yml
@@ -115,6 +104,3 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see [http://www.gnu.org/licenses/].
-
-
-
