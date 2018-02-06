@@ -67,10 +67,10 @@ See also the [IAC wiki on conda](https://wiki.iac.ethz.ch/bin/viewauth/IT/CondaP
 #### On your personal computer
 
  * [Download](https://conda.io/docs/user-guide/install/download.html) and [install conda](https://conda.io/docs/user-guide/install/linux.html)
- * Create the `pyvis` environment, using the [`packages.yml`](https://github.com/C2SM/pyvis/blob/master/packages.yml) file (this will take a while)
+ * Create the `pyvis` environment, using the [`pyvis.yml`](https://github.com/C2SM/pyvis/blob/master/pyvis.yml) file (this will take a while)
 
 ~~~~bash
-conda env create -f packages.yml
+conda env create -f pyvis.yml
 ~~~~
 
  * open jupyter notebook 
