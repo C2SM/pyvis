@@ -1,3 +1,5 @@
+# code by M.Hauser
+
 import cartopy.util as cutil
 import cartopy.crs as ccrs
 import matplotlib as mpl
@@ -721,7 +723,12 @@ def yticklabels(y_ticks, labelpad=None, size=None, weight=None, ax=None,
     
     # remove all points not on map for labeling
     y_label_points = [y for y in y_ticks if y_lim[0] <= y <= y_lim[1]]
-
+    
+    if not y_label_points:
+        msg = ('WARN: no points found for ylabel\n'
+               'y_lim is: {:0.2f} to {:0.2f}'.format(y_lim[0], y_lim[1]))
+        print(msg)
+        
     # get a transform instance that mpl understands
     transform = ccrs.PlateCarree()._as_mpl_transform(ax)
 
@@ -792,7 +799,12 @@ def xticklabels(x_ticks, labelpad=None, size=None, weight=None, ax=None,
     
     # remove all points not on map for labeling
     x_label_points = [x for x in x_ticks if x_lim[0] <= x <= x_lim[1]]
-
+    
+    if not x_label_points:
+        msg = ('WARN: no points found for xlabel\n'
+               'x_lim is: {:0.2f} to {:0.2f}'.format(x_lim[0], x_lim[1]))
+        print(msg)
+    
     # get a transform instance that mpl understands
     transform = ccrs.PlateCarree()._as_mpl_transform(ax)
 
@@ -816,7 +828,7 @@ def _get_boundary_platecarree(ax):
     # after ax._get_extent_geom
     proj = ccrs.PlateCarree()
     boundary_poly = sgeom.Polygon(ax.outline_patch.get_path().vertices)
-    eroded_boundary = boundary_poly.buffer(-ax.projection.threshold)
+    eroded_boundary = boundary_poly.buffer(-ax.projection.threshold / 100)
     boundary_pc = proj.project_geometry(eroded_boundary, ax.projection)
     
     return boundary_pc
