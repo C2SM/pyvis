@@ -82,6 +82,11 @@ source activate pyvis
 jupyter notebook
 ~~~~
 
+## What's New
+
+ * See [version history](./WHATS_NEW.md)
+
+
 ## Feedback
 
 I would be very happy to hear from you (mail to <mathias.hauser@env.ethz.ch>).
