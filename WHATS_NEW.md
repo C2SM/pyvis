@@ -9,7 +9,7 @@
  * explain arguments of `plt.subplots` (closes [GH6][i6] and [GH7][i7])
  * explain why np.newaxis is needed in ex1_2 (broadcasting) (closes [GH10][i10])
  * ex3_2 fix typos and colormap range (closes [GH17][i17] and [GH19][i19])
-
+ * use `plt.scatter?` for help, as `ax.scatter?` returns the cartopy scatter function (closes [GH18][i18])
 
 
 ### 1.0.0 (06.02.2018)
