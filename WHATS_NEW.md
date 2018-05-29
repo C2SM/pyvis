@@ -16,6 +16,9 @@
    * replaced plt.scatter by ax.scatter in ex1_3 (closes [GH12][i12])
    * now plots correct data in last exercise of ex1_4 (closes [GH13][i13])
    * hexbin can handle NaNs in ex1_5 (closes [GH14][i14])
+ * Updated Part 2
+   * typos, small changes to text
+   * simplify ex2_2
 
 ### 1.0.0 (06.02.2018)
 
