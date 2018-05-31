@@ -73,6 +73,10 @@ See also the [IAC wiki on conda](https://wiki.iac.ethz.ch/bin/viewauth/IT/CondaP
 conda env create -f pyvis.yml
 ~~~~
 
+or the previous command does not suceed, create the `pyvis` environment, using the [`packages.yml`](https://github.com/C2SM/pyvis/blob/master/packages.yml) file :
+~~~~bash
+conda env create -f packages.yml
+~~~~
  * open jupyter notebook 
 
 ~~~~bash
