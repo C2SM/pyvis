@@ -1,6 +1,6 @@
 ![c2sm logo](./figures/c2sm.png)
 
-# pyvis - Python Visualisation Course - c2sm
+# pyvis - Python Visualisation Course - c2sm - version 2
 
 
 * Mathias Hauser ([ETHZ](http://www.iac.ethz.ch/people-iac/person-detail.html?persid=146568), [github](https://github.com/mathause)) <mathias.hauser@env.ethz.ch>
@@ -13,8 +13,8 @@ The lectures consist of IPython Notebooks.
 
 ## Audience
 
-Python novices who should have programming experience in other
-languages. A number of examples and problems are drawn from the field
+Python beginners who should have programming experience in other
+languages. Most examples and exercises are drawn from the field
 of Climate Reseach.
 
 ## Duration
@@ -40,6 +40,8 @@ and unpack.
 
 #### Computer room at ETH (HG D 12)
 
+[Warning: this is not yet up to date!](#)
+
  * log in to Fedora (you may have to reboot the computer)
  * execute the following commands:
 
@@ -53,11 +55,12 @@ jupyter notebook
 
 #### At IAC ETH (on linux computers)
 
+ * you can use the standard conda environment
  * execute the following commands:
 
 ~~~~bash
-module load conda
-source activate pyvis
+module load conda/2018
+source activate iacpy3_2018
 # go to the directory of the material
 jupyter notebook
 ~~~~
@@ -67,13 +70,8 @@ See also the [IAC wiki on conda](https://wiki.iac.ethz.ch/bin/viewauth/IT/CondaP
 #### On your personal computer
 
  * [Download](https://conda.io/docs/user-guide/install/download.html) and [install conda](https://conda.io/docs/user-guide/install/linux.html)
- * Create the `pyvis` environment, using the [`pyvis.yml`](https://github.com/C2SM/pyvis/blob/master/pyvis.yml) file (this will take a while)
+ * Create the `pyvis` environment, using the [`packages.yml`](https://github.com/C2SM/pyvis/blob/master/packages.yml) file (this will take a while):
 
-~~~~bash
-conda env create -f pyvis.yml
-~~~~
-
-or, if the previous command does not suceed, create the `pyvis` environment using the [`packages.yml`](https://github.com/C2SM/pyvis/blob/master/packages.yml) file :
 ~~~~bash
 conda env create -f packages.yml
 ~~~~
