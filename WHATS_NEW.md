@@ -6,8 +6,6 @@
 
  * `np.random.randint` is exclusive (closes [GH1][i1])
  * use `np.asarray` instead of `np.array`, because it does not copy the data (closes [GH2][i2])
- * ex3_2 fix typos and colormap range (closes [GH17][i17] and [GH19][i19])
- * use `plt.scatter?` for help, as `ax.scatter?` returns the cartopy scatter function (closes [GH18][i18])
  * Updated Part 1
    * corrected some typos
    * restructured some exercises
@@ -19,6 +17,17 @@
  * Updated Part 2
    * typos, small changes to text
    * simplify ex2_2
+ * Updated Part 3
+   * use `mplotutils as mpu` instead of `utils`
+   * simplifications & typos
+   * ex3_1 replaced the color 'teal' with 'green' (closes [GH11][i11])
+   * ex3_1 use `plt.scatter?` for help, as `ax.scatter?` returns the cartopy scatter function (closes [GH18][i18])
+   * ex3_2 fix typos and colormap range (closes [GH17][i17] and [GH19][i19])
+   * ex3_2 explain the 351 (and not 350) in `np.arange(-10, 351, 20)` (closes [GH22][i22])
+   * ex3_5 typo (closes [GH20][i20])
+   * ex3_6 correct longitude range (closes [GH21][i21])
+   * ex3_8 rephrase: we cannot do along-line color changes (closes [GH24][i24])
+
 
 ### 1.0.0 (06.02.2018)
 
@@ -32,11 +41,18 @@
 [i6]: https://github.com/C2SM/pyvis/issues/6
 [i7]: https://github.com/C2SM/pyvis/issues/7
 [i10]: https://github.com/C2SM/pyvis/issues/10
+[i11]: https://github.com/C2SM/pyvis/issues/11
 [i12]: https://github.com/C2SM/pyvis/issues/12
 [i13]: https://github.com/C2SM/pyvis/issues/13
 [i14]: https://github.com/C2SM/pyvis/issues/14
 [i17]: https://github.com/C2SM/pyvis/issues/17
 [i19]: https://github.com/C2SM/pyvis/issues/19
+[i20]: https://github.com/C2SM/pyvis/issues/20
+[i21]: https://github.com/C2SM/pyvis/issues/21
+[i22]: https://github.com/C2SM/pyvis/issues/22
+[i24]: https://github.com/C2SM/pyvis/issues/24
+
+
 
 
 
