@@ -4,6 +4,7 @@
 
 ### 1.1.0 (unreleased)
 
+ * updated installation files (closes [GH37][i37])
  * `np.random.randint` is exclusive (closes [GH1][i1])
  * use `np.asarray` instead of `np.array`, because it does not copy the data (closes [GH2][i2])
  * Updated Part 1
@@ -51,8 +52,7 @@
 [i21]: https://github.com/C2SM/pyvis/issues/21
 [i22]: https://github.com/C2SM/pyvis/issues/22
 [i24]: https://github.com/C2SM/pyvis/issues/24
-
-
+[i37]: https://github.com/C2SM/pyvis/issues/37
 
 
 
