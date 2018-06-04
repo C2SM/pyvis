@@ -28,7 +28,9 @@
    * ex3_5 typo (closes [GH20][i20])
    * ex3_6 correct longitude range (closes [GH21][i21])
    * ex3_8 rephrase: we cannot do along-line color changes (closes [GH24][i24])
-
+ * Updated Part 4
+   * use `mplotutils as mpu` instead of `utils` for ex4_1 and ex4_2
+   * correct typos
 
 ### 1.0.0 (06.02.2018)
 
