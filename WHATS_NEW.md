@@ -5,8 +5,15 @@
 ### 1.1.0 (unreleased)
 
  * updated installation files (closes [GH37][i37])
- * `np.random.randint` is exclusive (closes [GH1][i1])
  * use `np.asarray` instead of `np.array`, because it does not copy the data (closes [GH2][i2])
+ * Update 0
+   * improved the exercises (more explanations, removed unnecessary parts, slight restructuring)
+   * added disclaimer when using a system command, e.g. `! head file` (closes [GH34][i34])
+   * pandas as last exercise (closes [GH4][i4])
+   * ex0_1: mention shift + tab to get to the help (closes [GH15][i15])
+   * ex0_2: `np.random.randint` is exclusive (closes [GH1][i1])
+   * ex0_2: Add more exercises on `np.arange` (closes [GH39][i39])
+
  * Updated Part 1
    * corrected some typos
    * restructured some exercises
@@ -41,6 +48,7 @@
 
 [i1]: https://github.com/C2SM/pyvis/issues/1
 [i2]: https://github.com/C2SM/pyvis/issues/2
+[i4]: https://github.com/C2SM/pyvis/issues/4
 [i6]: https://github.com/C2SM/pyvis/issues/6
 [i7]: https://github.com/C2SM/pyvis/issues/7
 [i10]: https://github.com/C2SM/pyvis/issues/10
@@ -48,15 +56,13 @@
 [i12]: https://github.com/C2SM/pyvis/issues/12
 [i13]: https://github.com/C2SM/pyvis/issues/13
 [i14]: https://github.com/C2SM/pyvis/issues/14
+[i15]: https://github.com/C2SM/pyvis/issues/15
 [i17]: https://github.com/C2SM/pyvis/issues/17
 [i19]: https://github.com/C2SM/pyvis/issues/19
 [i20]: https://github.com/C2SM/pyvis/issues/20
 [i21]: https://github.com/C2SM/pyvis/issues/21
 [i22]: https://github.com/C2SM/pyvis/issues/22
 [i24]: https://github.com/C2SM/pyvis/issues/24
+[i34]: https://github.com/C2SM/pyvis/issues/34
 [i37]: https://github.com/C2SM/pyvis/issues/37
-
-
-
-
-
+[i39]: https://github.com/C2SM/pyvis/issues/39
