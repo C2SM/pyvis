@@ -81,6 +81,14 @@ source activate pyvis
 jupyter notebook
 ~~~~
 
+### Select the Course part
+
+ * Part 0: very short introduction to Jupyter Notebooks, numpy, netCDF4, xarray, and pandas
+ * Part 1: Introduction to matplotlib
+ * Part 2: Some advanced feature of matplotlib and seaborn.
+ * Part 3: Plotting georeferenced data with cartopy.
+ * Part 4: Advanced exercises with plots contributed by the community.
+
 ## What's New
 
  * See [version history](./WHATS_NEW.md)
