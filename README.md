@@ -40,8 +40,6 @@ and unpack.
 
 #### Computer room at ETH (HG D 12)
 
-[Warning: this is not yet up to date!](#)
-
  * log in to Fedora (you may have to reboot the computer)
  * execute the following commands:
 
@@ -78,7 +76,6 @@ conda env create -f packages.yml
  * open jupyter notebook 
 
 ~~~~bash
-
 source activate pyvis
 # go to the directory of the material
 jupyter notebook
