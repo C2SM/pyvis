@@ -67,7 +67,7 @@ See also the [Python FAQ on the IAC wiki](https://wiki.iac.ethz.ch/IT/PythonFAQ)
 
 #### On your personal computer
 
- * [Download](https://conda.io/docs/user-guide/install/download.html) and [install conda](https://conda.io/docs/user-guide/install/linux.html)
+ * Follow the [installation guide](https://conda.io/docs/user-guide/install/) for your operating system.
  * Create the `pyvis` environment, using the [`packages.yml`](https://github.com/C2SM/pyvis/blob/master/packages.yml) file (this will take a while):
 
 ~~~~bash
@@ -81,9 +81,14 @@ source activate pyvis
 jupyter notebook
 ~~~~
 
+### Hide Solutions
+
+To hide the solutions a jupyter extension must be active. On the main page, click on `Nbextensions`. Then make sure `Hide input` has a tick.
+
+
 ### Select the Course part
 
- * Part 0: very short introduction to Jupyter Notebooks, numpy, netCDF4, xarray, and pandas
+ * Part 0: very short introductions to Jupyter Notebooks, numpy, netCDF4, xarray, and pandas
  * Part 1: Introduction to matplotlib
  * Part 2: Some advanced feature of matplotlib and seaborn.
  * Part 3: Plotting georeferenced data with cartopy.
