@@ -63,7 +63,7 @@ source activate iacpy3_2018
 jupyter notebook
 ~~~~
 
-See also the [IAC wiki on conda](https://wiki.iac.ethz.ch/bin/viewauth/IT/CondaPython) (restricted access).
+See also the [Python FAQ on the IAC wiki](https://wiki.iac.ethz.ch/IT/PythonFAQ) (restricted access).
 
 #### On your personal computer
 
