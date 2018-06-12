@@ -76,25 +76,8 @@ See also the [Python FAQ on the IAC wiki](https://wiki.iac.ethz.ch/IT/PythonFAQ)
 
 #### On your personal computer
 
-<details>
-<summary>Click for details</summary>
-
- * Follow the [conda installation guide](https://conda.io/docs/user-guide/install/) for your operating system.
- * Download the `packages.yml` file 
-   * Go to [`packages.yml`](https://github.com/C2SM/pyvis/blob/master/packages.yml)
-   * right click on the `Raw` button
-   * Save File As...
- * Install the environment and open jupyter notebook
-
-##### From the command line
-
-<details>
-<summary>Click for details</summary>
-
-~~~~bash
-conda env create -f packages.yml
-~~~~
- * open jupyter notebook 
+ * [Install conda and the pyvis environment](./INSTALL.md)
+ * Start jupyter - from the command line
 
 ~~~~bash
 source activate pyvis
@@ -102,28 +85,12 @@ source activate pyvis
 jupyter notebook
 ~~~~
 
-</details>
+ * Start jupyter - from Anaconda Navigator (Windows)
 
-##### From Anaconda Navigator (Windows)
-
-<details>
-<summary>Click for details</summary>
-
- * Open Anaconda Navigator
- * Go to `Environments`
- * Select Import
-   * Name: pyvis
-   * Specification File: Select the `packages.yml` file
-   * This will take about 20 minutes.
- * Go to `Home`
- * Switch to pyvis environment; Select `Applications on 'pyvis'`
- * Launch jupyter notebook
- * Go to the directory of the material
-
-</details>
-
-</details>
-
+   * Open Anaconda Navigator
+   * Switch to pyvis environment; Select `Applications on 'pyvis'`
+   * Launch jupyter notebook
+   * Go to the directory of the material
 
 ### 3 Hide Solutions
 
