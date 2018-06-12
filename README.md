@@ -38,8 +38,10 @@ and unpack.
 
 ### 2 Start jupyter notebook
 
+#### Computer room at ETH (HG D 12)
+
 <details>
-<summary><b>Computer room at ETH (HG D 12)</b></summary>
+<summary>Click for details</summary>
 
  * log in to Fedora (you may have to reboot the computer)
  * execute the following commands:
@@ -53,8 +55,11 @@ jupyter notebook
 
 </details>
 
+#### At IAC ETH (on linux computers)
+
 <details>
-<summary><b>2.2 At IAC ETH (on linux computers)</b></summary>
+<summary>Click for details</summary>
+
  * you can use the standard conda environment
  * execute the following commands:
 
@@ -69,20 +74,22 @@ See also the [Python FAQ on the IAC wiki](https://wiki.iac.ethz.ch/IT/PythonFAQ)
 
 </details>
 
+#### On your personal computer
+
 <details>
-<summary><b>On your personal computer</b></summary>
+<summary>Click for details</summary>
 
  * Follow the [conda installation guide](https://conda.io/docs/user-guide/install/) for your operating system.
  * Download the `packages.yml` file 
    * Go to [`packages.yml`](https://github.com/C2SM/pyvis/blob/master/packages.yml)
    * right click on the `Raw` button
    * Save File As...
+ * Install the environment and open jupyter notebook
 
+##### From the command line
 
 <details>
-<summary>From the command line</summary>
-
-
+<summary>Click for details</summary>
 
 ~~~~bash
 conda env create -f packages.yml
@@ -97,9 +104,10 @@ jupyter notebook
 
 </details>
 
+##### From Anaconda Navigator (Windows)
 
 <details>
-<summary>From Anaconda Navigator (Windows)</summary>
+<summary>Click for details</summary>
 
  * Open Anaconda Navigator
  * Go to `Environments`
