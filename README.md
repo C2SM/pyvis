@@ -24,7 +24,7 @@ It's envisioned as a two day course.
 
 ## How to use it
 
-### Obtain the course material
+### 1 Obtain the course material
 
 Clone the git repository:
 
@@ -36,9 +36,10 @@ Alternatively, you can download the [zip-archive](https://github.com/C2SM/pyvis/
 and unpack.
 
 
-### Start jupyter notebook
+### 2 Start jupyter notebook
 
-#### Computer room at ETH (HG D 12)
+<details>
+<summary><b>Computer room at ETH (HG D 12)</b></summary>
 
  * log in to Fedora (you may have to reboot the computer)
  * execute the following commands:
@@ -50,9 +51,10 @@ source activate pyvis
 jupyter notebook
 ~~~~
 
+</details>
 
-#### At IAC ETH (on linux computers)
-
+<details>
+<summary><b>2.2 At IAC ETH (on linux computers)</b></summary>
  * you can use the standard conda environment
  * execute the following commands:
 
@@ -65,7 +67,10 @@ jupyter notebook
 
 See also the [Python FAQ on the IAC wiki](https://wiki.iac.ethz.ch/IT/PythonFAQ) (restricted access).
 
-#### On your personal computer
+</details>
+
+<details>
+<summary><b>On your personal computer</b></summary>
 
  * Follow the [conda installation guide](https://conda.io/docs/user-guide/install/) for your operating system.
  * Download the `packages.yml` file 
@@ -73,7 +78,11 @@ See also the [Python FAQ on the IAC wiki](https://wiki.iac.ethz.ch/IT/PythonFAQ)
    * right click on the `Raw` button
    * Save File As...
 
-##### From the command line
+
+<details>
+<summary>From the command line</summary>
+
+
 
 ~~~~bash
 conda env create -f packages.yml
@@ -86,7 +95,11 @@ source activate pyvis
 jupyter notebook
 ~~~~
 
-##### From Anaconda Navigator (Windows)
+</details>
+
+
+<details>
+<summary>From Anaconda Navigator (Windows)</summary>
 
  * Open Anaconda Navigator
  * Go to `Environments`
@@ -99,12 +112,17 @@ jupyter notebook
  * Launch jupyter notebook
  * Go to the directory of the material
 
-### Hide Solutions
+</details>
+
+</details>
+
+
+### 3 Hide Solutions
 
 To hide the solutions a jupyter extension must be active. On the main page, click on `Nbextensions`. Then make sure `Hide input` has a tick.
 
 
-### Select the Course part
+### 4  Select the Course part
 
  * Part 0: very short introductions to Jupyter Notebooks, numpy, netCDF4, xarray, and pandas
  * Part 1: Introduction to matplotlib
