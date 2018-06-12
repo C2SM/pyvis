@@ -76,6 +76,9 @@ See also the [Python FAQ on the IAC wiki](https://wiki.iac.ethz.ch/IT/PythonFAQ)
 
 #### On your personal computer
 
+<details>
+<summary>Click for details</summary>
+
  * [Install conda and the pyvis environment](./INSTALL.md)
  * Start jupyter - from the command line
 
@@ -91,6 +94,8 @@ jupyter notebook
    * Switch to pyvis environment; Select `Applications on 'pyvis'`
    * Launch jupyter notebook
    * Go to the directory of the material
+
+</details>
 
 ### 3 Hide Solutions
 
