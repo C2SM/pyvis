@@ -3,15 +3,15 @@
 ## Install conda
 
  * Follow the [conda installation guide](https://conda.io/docs/user-guide/install/) for your operating system.
-   * Choose Anaconda
+   * Fow Windows choose Anaconda and not Miniconda
 
-## Install the environment
+## Prepare the environment
 
- * Download the `packages.yml` file 
-   * Go to [`packages.yml`](https://github.com/C2SM/pyvis/blob/master/packages.yml)
-   * right click on the `Raw` button
-   * Save File As...
- *  and open jupyter notebook
+### Download `packages.yml` file
+
+ * Go to [`packages.yml`](https://github.com/C2SM/pyvis/blob/master/packages.yml)
+ * right click on the `Raw` button
+ * Save File As...
 
 ### Install the environment - from the command line
 
