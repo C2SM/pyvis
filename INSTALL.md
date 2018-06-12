@@ -27,7 +27,3 @@ conda env create -f packages.yml
    * Name: pyvis
    * Specification File: Select the `packages.yml` file
    * This will take about 20 minutes.
- * Go to `Home`
- * Switch to pyvis environment; Select `Applications on 'pyvis'`
-
-

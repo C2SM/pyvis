@@ -91,7 +91,8 @@ jupyter notebook
  * Start jupyter - from Anaconda Navigator (Windows)
 
    * Open Anaconda Navigator
-   * Switch to pyvis environment; Select `Applications on 'pyvis'`
+   * Make sure you are in the `Home` tab
+   * Switch to pyvis environment; select 'pyvis' from the dropdown
    * Launch jupyter notebook
    * Go to the directory of the material
 
@@ -99,7 +100,7 @@ jupyter notebook
 
 ### 3 Hide Solutions
 
-To hide the solutions a jupyter extension must be active. On the main page, click on `Nbextensions`. Then make sure `Hide input` has a tick.
+To hide the solutions a jupyter extension must be active. In the browser, on jupyter main page, click on `Nbextensions`. Then make sure `Hide input` has a tick.
 
 
 ### 4  Select the Course part
