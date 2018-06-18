@@ -1,7 +1,7 @@
 from IPython.display import HTML
 from IPython.display import display
 
-def add_buttons_to_toggle_visibility():
+def add():
 
     tag = HTML('''
     
