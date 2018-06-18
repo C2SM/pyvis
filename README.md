@@ -38,7 +38,7 @@ and unpack.
 
 ### 2 Start jupyter notebook
 
-#### Computer room at ETH (HG D 12)
+#### In the computer room at ETH (HG D 12)
 
 <details>
 <summary>Click for details</summary>
