@@ -3,6 +3,8 @@
 *.pdf
 *.jpg
 
+!Presentation.pdf
+
 !/figures/*
 #!/figures/*.pdf
 
