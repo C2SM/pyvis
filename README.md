@@ -58,7 +58,7 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # Once you see your username in the terminal prompt then execute the following
-conda activate /opt/kunden/chadha/conda/envs
+conda activate /opt/kunden/chadha/conda/envs/pyvis
 # go to the directory of the material
 jupyter notebook
 ~~~~
