@@ -47,8 +47,18 @@ and unpack.
  * execute the following commands:
 
 ~~~~bash
-export CONDA_ENVS_PATH=/opt/kunden/hauser/conda/envs
-source activate pyvis
+# If the terminal prompt shows "bash-4.4" instead of your username then execute
+source /etc/bashrc
+
+OR
+
+#Add the following lines to your .bashrc file and restart the terminal
+if [ -f /etc/bashrc ]; then
+        . /etc/bashrc
+fi
+
+# Once you see your username in the terminal prompt then execute the following
+conda activate /opt/kunden/chadha/conda/envs
 # go to the directory of the material
 jupyter notebook
 ~~~~
