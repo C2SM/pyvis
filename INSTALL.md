@@ -7,16 +7,16 @@
 
 ## Prepare the environment
 
-### Download `packages.yml` file
+### Download `environment.yml` file
 
- * Go to [`packages.yml`](https://github.com/C2SM/pyvis/blob/master/packages.yml)
+ * Go to [`environment.yml`](https://github.com/C2SM/pyvis/blob/master/environment.yml)
  * right click on the `Raw` button
  * Save File As...
 
 ### Install the environment - from the command line
 
 ~~~~bash
-conda env create -f packages.yml
+conda env create -f environment.yml
 ~~~~
 
 ### Install the environment - from Anaconda Navigator (Windows)
@@ -25,5 +25,5 @@ conda env create -f packages.yml
  * Go to `Environments`
  * Select Import
    * Name: pyvis
-   * Specification File: Select the `packages.yml` file
+   * Specification File: Select the `environment.yml` file
    * This will take about 20 minutes.
