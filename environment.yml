@@ -18,7 +18,7 @@ dependencies:
     - seaborn
     - cartopy
     - jupyter_contrib_nbextensions
-    - xarray
+    - xarray=0.10
     - bottleneck
     - pip
     - scipy
