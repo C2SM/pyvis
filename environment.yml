@@ -11,7 +11,7 @@ dependencies:
     - python=3
     - ipython
     - jupyter
-    - matplotlib
+    - matplotlib=3.2.2
     - numpy
     - netCDF4
     - pandas
