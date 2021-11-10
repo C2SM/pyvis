@@ -8,25 +8,18 @@ channels:
     - conda-forge
 
 dependencies:
-    - python=3
-    - ipython
-    - jupyter
-    - matplotlib=3.2.2
+    - python=3.8
+    - jupyterlab
+    - matplotlib
     - numpy
     - netCDF4
     - pandas
     - seaborn
     - cartopy
-    - jupyter_contrib_nbextensions
-    - xarray=0.10
-    - bottleneck
+    - xarray
     - pip
     - scipy
     - geopandas
-    - ggplot
-    - altair
-    - statsmodels
-    - parse
     - pip:
         - https://github.com/mathause/mplotutils/archive/v0.2.0.zip
 
