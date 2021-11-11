@@ -20,6 +20,7 @@ dependencies:
     - pip
     - scipy
     - geopandas
+    - ipympl
     - pip:
         - https://github.com/mathause/mplotutils/archive/v0.2.0.zip
 
