@@ -10,7 +10,6 @@ channels:
 dependencies:
     - python=3.8
     - jupyterlab
-    - jupyter_server
     - matplotlib
     - numpy
     - netCDF4
@@ -26,7 +25,7 @@ dependencies:
     - isort
     - jupyterlab_code_formatter
     - cmcrameri
-    - ipython
+    - ipykernel[version='<6.18.0']
     - psy-maps
     - pip:
         - https://github.com/mathause/mplotutils/archive/v0.2.0.zip
