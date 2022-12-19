@@ -93,7 +93,7 @@ See also the [Python FAQ on the IAC wiki](https://wiki.iac.ethz.ch/IT/PythonFAQ)
  * Start jupyter - from the command line
 
 ~~~~bash
-source activate pyvis
+conda activate pyvis
 # go to the directory of the material
 jupyter notebook
 ~~~~
