@@ -23,8 +23,7 @@ dependencies:
     - ipympl
     - black
     - isort
-    - ipykernel
     - jupyterlab_code_formatter
     - pip:
-        - https://github.com/mathause/mplotutils
+        - https://github.com/mathause/mplotutils/archive/v0.2.0.zip
 
