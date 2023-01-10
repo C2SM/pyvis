@@ -24,6 +24,9 @@ dependencies:
     - black
     - isort
     - jupyterlab_code_formatter
+    - cmcrameri
+    - ipykernel[version='<6.18.0']
+    - psy-maps
     - pip:
         - https://github.com/mathause/mplotutils/archive/v0.2.0.zip
-
+        - git+https://github.com/C2SM/iconarray@v0.1.19#egg=iconarray
