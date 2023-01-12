@@ -1,9 +1,10 @@
-from IPython.display import HTML
-from IPython.display import display
+from IPython.display import HTML, display
+
 
 def add():
 
-    tag = HTML('''
+    tag = HTML(
+        """
     
     <script>
     //$( document ).ready(function() {
@@ -33,6 +34,7 @@ def add():
     
 
 
-    ''')
-    
+    """
+    )
+
     return display(tag)
