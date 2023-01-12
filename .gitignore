@@ -1,3 +1,8 @@
+# ignore data downloaded from web
+data/cosmo_pollen.nc
+data/my_exp1_atm_3d_ml_20180921T000000Z_t2m.nc
+data/rmp_my_exp1_atm_3d_ml_20180921T000000Z.nc
+
 # ignore figures, except in ./figures/
 *.png
 *.pdf
