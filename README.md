@@ -117,9 +117,10 @@ To hide the solutions a jupyter extension must be active. In the browser, on jup
 
  * Part 0: very short introductions to Jupyter Notebooks, numpy, netCDF4, xarray, and pandas
  * Part 1: Introduction to matplotlib
- * Part 2: Some advanced feature of matplotlib and seaborn.
- * Part 3: Plotting georeferenced data with cartopy.
- * Part 4: Advanced exercises with plots contributed by the community.
+ * Part 2: Plotting georeferenced data with cartopy
+ * Part 3: Introduction to icon-vis
+ * Part 4: Bonus exercises includint seaborn, trajectories and rotated pole
+ * Part 5: Advanced exercises with plots contributed by the community
 
 ## What's New
 
