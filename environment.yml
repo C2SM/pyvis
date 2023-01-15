@@ -6,27 +6,31 @@ name: pyvis
 
 channels:
     - conda-forge
+    - nodefaults
 
 dependencies:
-    - python=3.8
-    - jupyterlab
-    - matplotlib
-    - numpy
-    - netCDF4
-    - pandas
-    - seaborn
-    - cartopy
-    - xarray
+    - python=3.11
     - pip
-    - scipy
+    # plotting and data handling
+    - cartopy
+    - cmcrameri
     - geopandas
-    - ipympl
+    - matplotlib
+    - netCDF4
+    - numpy
+    - pandas
+    - psy-maps
+    - scipy
+    - seaborn
+    - xarray
+    # code formatting
     - black
     - isort
+    # jupyter
+    - ipykernel
+    - ipympl
+    - jupyterlab
     - jupyterlab_code_formatter
-    - cmcrameri
-    - ipykernel[version='<6.18.0']
-    - psy-maps
     - pip:
-        - https://github.com/mathause/mplotutils/archive/v0.2.0.zip
+        - https://github.com/mathause/mplotutils/archive/v0.3.0.zip
         - git+https://github.com/C2SM/iconarray@v0.1.19#egg=iconarray
