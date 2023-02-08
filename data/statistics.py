@@ -1,6 +1,5 @@
 import numpy as np
 import scipy as sp
-import statsmodels.api as sm
 import xarray as xr
 
 
