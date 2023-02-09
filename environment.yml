@@ -32,5 +32,5 @@ dependencies:
     - jupyterlab
     - jupyterlab_code_formatter
     - pip:
-        - https://github.com/mathause/mplotutils/archive/v0.3.0.zip
+        - https://github.com/mathause/mplotutils/archive/v0.3.1.zip
         - git+https://github.com/C2SM/iconarray@v0.1.19#egg=iconarray
