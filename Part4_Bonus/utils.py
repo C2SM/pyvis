@@ -1,3 +1,6 @@
+import matplotlib.pyplot as plt
+
+
 def add_line(data, color, ax=None, time=slice("2010", None), **kwargs):
     """select time period and plot mean tas"""
 
