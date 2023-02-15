@@ -119,4 +119,5 @@ venv.bak/
 # mypy
 .mypy_cache/
 
-
+# Apple storage of custom attributes
+**/.DS_Store
