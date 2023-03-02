@@ -15,7 +15,7 @@ The lectures consist of IPython Notebooks.
 
 Python beginners who should have programming experience in other
 languages. Most examples and exercises are drawn from the field
-of Climate Reseach.
+of Climate Research.
 
 ## Duration
 
