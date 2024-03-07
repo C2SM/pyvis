@@ -5,10 +5,10 @@ def add():
 
     tag = HTML(
         """
-    
+
     <script>
     //$( document ).ready(function() {
-        
+
     var add_button = function () {
         Jupyter.notebook.get_cells().forEach(function(cell) {
             if (cell.element.find("form.bla").length == 0) {
@@ -16,7 +16,7 @@ def add():
             }
         })
     };
-    
+
     var toggle_selected_input = function () {
         // Find the selected cell
         var cell = Jupyter.notebook.get_selected_cell();
@@ -24,16 +24,13 @@ def add():
         cell.element.find("div.input").toggle('slow');
         cell.metadata.hide_input = ! cell.metadata.hide_input;
         };
-    
-    
-    add_button()    
 
-      
+
+    add_button()
+
+
     //} );
     </script>
-    
-
-
     """
     )
 
