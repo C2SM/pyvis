@@ -19,6 +19,9 @@ select = [
   "UP", # Pyupgrade
 ]
 
+[tool.ruff.lint.isort]
+known-first-party = ["statistics"]
+
 [tool.ruff.lint.per-file-ignores]
 # allow unused variables
 "Part4_Bonus/ex4_1_helper_functions.ipynb" = ["F841"]
