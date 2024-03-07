@@ -1,0 +1,30 @@
+[tool.ruff]
+# also check notebooks
+extend-include = ["*.ipynb"]
+
+[tool.ruff.lint]
+# E402: module level import not at top of file
+# E501: line too long - let the formatter worry about this
+# E731: do not assign a lambda expression, use a def
+ignore = [
+  "E402",
+  "E501",
+  "E731",
+]
+select = [
+  "F", # Pyflakes
+  "E", # Pycodestyle
+  "W", # warnings
+  "I", # isort
+  "UP", # Pyupgrade
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["statistics"]
+
+[tool.ruff.lint.per-file-ignores]
+# allow unused variables
+"Part4_Bonus/ex4_1_helper_functions.ipynb" = ["F841"]
+"Part5_User-contributions/ex5_3_distributions_W_Ball.ipynb" = ["F841"]
+# ignore unused import
+"Part2_Mapplots/ex2_2_psyplot.ipynb" = ["F401"]
