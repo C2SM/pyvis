@@ -23,3 +23,5 @@ select = [
 # allow unused variables
 "Part4_Bonus/ex4_1_helper_functions.ipynb" = ["F841"]
 "Part5_User-contributions/ex5_3_distributions_W_Ball.ipynb" = ["F841"]
+# ignore unused import
+"Part2_Mapplots/ex2_2_psyplot.ipynb" = ["F401"]
