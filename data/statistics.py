@@ -31,7 +31,7 @@ def theil_ufunc(da, dim="time", alpha=0.1):
         isnan = np.isnan(pt)
         # return NaN for all-nan vectors
         if isnan.all():
-            return np.NaN, np.NaN
+            return np.nan, np.nan
 
         # use masked-stats if any is nan
         if isnan.any():
