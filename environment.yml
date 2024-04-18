@@ -12,7 +12,7 @@ dependencies:
     - python=3.11
     - pip
     # plotting and data handling
-    - cartopy
+    - cartopy=0.21.1
     - cmcrameri
     - geopandas
     - matplotlib
@@ -20,7 +20,10 @@ dependencies:
     - numpy
     - pandas
     - pooch
-    - psy-maps
+    - psy-maps=1.4.2
+    - psy-reg=1.4.0
+    - psy-simple=1.4.1
+    - psyplot=1.4.3
     - scipy
     - seaborn
     - xarray
@@ -32,6 +35,7 @@ dependencies:
     - ipympl
     - jupyterlab
     - jupyterlab_code_formatter
+    - eccodes
     - pip:
         - https://github.com/mathause/mplotutils/archive/v0.4.0.zip
-        - git+https://github.com/C2SM/iconarray@v0.1.19#egg=iconarray
+        - iconarray==0.3.2
