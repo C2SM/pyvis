@@ -41,4 +41,4 @@ dependencies:
     - pip:
         - https://github.com/mathause/mplotutils/archive/v0.4.0.zip
         # iconarray should be set to same version as in https://github.com/C2SM/icon-vis/blob/master/env/environment.yml
-        - iconarray==0.3.2
+        - git+https://github.com/C2SM/iconarray@v0.3.2#egg=iconarray  
