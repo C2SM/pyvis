@@ -1,6 +1,8 @@
 # list of packages/ libraries used for the PyVis workshop
 # use 'conda env create -f environment.yml' or 'mamba env create -f environment.yml'
 # to create the environment
+# 24-03-18: recent changes in psyplot seem to have introduced some bugs, which is why cartopy,
+# and all psy packages are pinned for now
 
 name: pyvis
 
@@ -12,7 +14,7 @@ dependencies:
     - python=3.11
     - pip
     # plotting and data handling
-    - cartopy
+    - cartopy=0.21.1
     - cmcrameri
     - geopandas
     - matplotlib
@@ -20,7 +22,10 @@ dependencies:
     - numpy
     - pandas
     - pooch
-    - psy-maps
+    - psy-maps=1.4.2
+    - psy-reg=1.4.0
+    - psy-simple=1.4.1
+    - psyplot=1.4.3
     - scipy
     - seaborn
     - xarray
@@ -32,6 +37,8 @@ dependencies:
     - ipympl
     - jupyterlab
     - jupyterlab_code_formatter
+    - eccodes
     - pip:
         - https://github.com/mathause/mplotutils/archive/v0.4.0.zip
-        - git+https://github.com/C2SM/iconarray@v0.1.19#egg=iconarray
+        # iconarray should be set to same version as in https://github.com/C2SM/icon-vis/blob/master/env/environment.yml
+        - git+https://github.com/C2SM/iconarray@v0.3.2#egg=iconarray  
